@@ -7,3 +7,4 @@ Slides : https://slides.com/cadichris/tdd-en-react-live-coding-2018-02-19#/
 ### Setup
 
 - Prettier pour la mise en forme du code en pre-commit.
+- Enzyme pour les tests de composants React
