@@ -1,0 +1,26 @@
+#ardoise {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#participants,
+#depenses,
+#creances {
+  flex-grow: 1;
+  justify-content: stretch;
+}
+
+h3 {
+  margin: 10px 44px;
+  border-top: 1px solid grey;
+  padding-top: 14px;
+}
+
+button {
+  margin-left: 10px !important;
+}
+input {
+  margin: 10px !important;
+}
