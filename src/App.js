@@ -19,6 +19,8 @@ class App extends Component {
             {participants.length === 0 &&
               "Aucun participant"}
             {participants.length === 1 && "1 participant"}
+            {participants.length > 1 &&
+              participants.length + " participants"}
           </h3>
 
           {participants.map(p => (
@@ -40,7 +42,7 @@ class App extends Component {
             id="inscrire"
             onClick={() =>
               this.setState({
-                participants: [inscrit],
+                participants: [...participants, inscrit],
                 inscrit: ""
               })
             }

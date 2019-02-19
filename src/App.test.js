@@ -6,6 +6,10 @@ import { cliquerSur, ecrire } from "./aideAuxTests/enzyme";
 let expectInputVide = function(input) {
   expect(input.html()).toContain('value=""');
 };
+let inscrire = function(participant, app) {
+  ecrire(participant).dans(app.find("#inscription-nom"));
+  cliquerSur(app.find("#inscrire"));
+};
 describe("App", () => {
   it("affiche une ardoise vierge", () => {
     const app = mountApp();
@@ -25,8 +29,7 @@ describe("App", () => {
   it("inscrit un participant", () => {
     const app = mountApp();
 
-    ecrire("Pam").dans(app.find("#inscription-nom"));
-    cliquerSur(app.find("#inscrire"));
+    inscrire("Pam", app);
 
     expect(app.find("#participants").html()).toContain(
       "1 participant"
@@ -35,6 +38,17 @@ describe("App", () => {
       "Pam"
     );
     expectInputVide(app.find("#inscription-nom"));
+  });
+
+  it("inscrit plusieurs participants", () => {
+    const ardoise = mountApp();
+
+    inscrire("Jim", ardoise);
+    inscrire("Creed", ardoise);
+
+    expect(ardoise.find("#participants").html()).toContain(
+      "2 participants"
+    );
   });
 });
 

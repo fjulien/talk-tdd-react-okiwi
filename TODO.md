@@ -1,8 +1,8 @@
 ### TODO
 
 - ~~afficher une ardoise vierge~~
-- inscrire un participant
-- inscrire plusieurs participants
+- ~~inscrire un participant~~
+- ~~inscrire plusieurs participants~~
 - afficher les participants
 
 * afficher le total dépensés
