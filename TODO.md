@@ -1,5 +1,6 @@
 ### TODO
 
+- ~~afficher une ardoise vierge~~
 - inscrire un participant
 - afficher les participants
 

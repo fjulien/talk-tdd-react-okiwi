@@ -1,25 +1,24 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import "./Ardoise.css";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="App" id="ardoise">
+        <h2>Ardoise !</h2>
+
+        <div id="participants">
+          <h3>Aucun participant</h3>
+        </div>
+
+        <div id="depenses">
+          <h3>Aucune dépense</h3>
+        </div>
+
+        <div id="creances">
+          <h3>Aucune créance</h3>
+        </div>
       </div>
     );
   }
