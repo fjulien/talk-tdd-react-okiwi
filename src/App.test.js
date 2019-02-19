@@ -52,6 +52,33 @@ describe("App", () => {
   });
 });
 
+describe("Dépenses", () => {
+  it("Ajoute une nouvelle dépense", () => {
+    const app = mountApp();
+
+    depenser("Jim", "100", app);
+    depenser("Pam", "70", app);
+
+    expect(app.find("#depenses").html()).toContain(
+      "170 euros dépensés"
+    );
+    expect(app.find("#depenses").html()).toContain(
+      "Jim : 100 euros"
+    );
+    expect(app.find("#depenses").html()).toContain(
+      "Pam : 70 euros"
+    );
+    expectInputVide(app.find("#depense-montant"));
+    expectInputVide(app.find("#depense-payeur"));
+  });
+});
+
+const depenser = function(payeur, montant, app) {
+  ecrire(payeur).dans(app.find("#depense-payeur"));
+  ecrire(montant).dans(app.find("#depense-montant"));
+  cliquerSur(app.find("#depenser"));
+};
+
 let mountApp = function() {
   return mount(<App />);
 };
