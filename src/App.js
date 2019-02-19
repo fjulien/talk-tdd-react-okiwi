@@ -1,55 +1,28 @@
 import React, { Component } from "react";
 import "./App.css";
 import "./Ardoise.css";
+import { Participants } from "./Participants/Participants";
 
 class App extends Component {
   state = {
-    participants: [],
-    inscrit: ""
+    participants: []
   };
 
   render() {
-    const { participants, inscrit } = this.state;
+    const { participants } = this.state;
+
     return (
       <div className="App" id="ardoise">
         <h2>Ardoise !</h2>
 
-        <div id="participants">
-          <h3>
-            {participants.length === 0 &&
-              "Aucun participant"}
-            {participants.length === 1 && "1 participant"}
-            {participants.length > 1 &&
-              participants.length + " participants"}
-          </h3>
-
-          {participants.map(p => (
-            <div key={p}>{p}</div>
-          ))}
-
-          <input
-            type="text"
-            id="inscription-nom"
-            onChange={event =>
-              this.setState({
-                inscrit: event.target.value
-              })
-            }
-            value={inscrit}
-          />
-
-          <button
-            id="inscrire"
-            onClick={() =>
-              this.setState({
-                participants: [...participants, inscrit],
-                inscrit: ""
-              })
-            }
-          >
-            Inscrire
-          </button>
-        </div>
+        <Participants
+          participants={participants}
+          onInscription={nouvelInscrit =>
+            this.setState({
+              participants: [...participants, nouvelInscrit]
+            })
+          }
+        />
 
         <div id="depenses">
           <h3>Aucune dépense</h3>
