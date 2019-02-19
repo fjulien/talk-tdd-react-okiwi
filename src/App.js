@@ -3,6 +3,7 @@ import "./App.css";
 import "./Ardoise.css";
 import { Participants } from "./Participants/Participants";
 import { Depenses } from "./Depenses/Depenses";
+import { calculerLesCreances } from "./Creances/calculerLesCreances";
 
 class App extends Component {
   state = {
@@ -12,6 +13,11 @@ class App extends Component {
 
   render() {
     const { participants, depenses } = this.state;
+    const creances = calculerLesCreances(
+      depenses,
+      participants
+    );
+
     return (
       <div className="App" id="ardoise">
         <h2>Ardoise !</h2>
@@ -36,6 +42,11 @@ class App extends Component {
 
         <div id="creances">
           <h3>Aucune créance</h3>
+          {creances.map((c, index) => (
+            <div key={index}>
+              {c.from} doit {c.montant} euros à {c.to}
+            </div>
+          ))}
         </div>
       </div>
     );

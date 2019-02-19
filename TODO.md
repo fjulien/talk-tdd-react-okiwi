@@ -11,4 +11,8 @@
 * ~~affiche les dépenses~~
 
 - calculer les créances
+  - jim est inscrit
+  - pam est inscrite
+  - jim dépense 100
+    -> pam doit 50 à jim
 - afficher les créances

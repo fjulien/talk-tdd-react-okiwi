@@ -73,6 +73,20 @@ describe("Dépenses", () => {
   });
 });
 
+describe("Créances", () => {
+  it("affiche les créances", () => {
+    const ardoise = mountApp();
+
+    inscrire("Jim", ardoise);
+    inscrire("Pam", ardoise);
+    depenser("Jim", "100", ardoise);
+
+    expect(ardoise.find("#creances").html()).toContain(
+      "Pam doit 50 euros à Jim"
+    );
+  });
+});
+
 const depenser = function(payeur, montant, app) {
   ecrire(payeur).dans(app.find("#depense-payeur"));
   ecrire(montant).dans(app.find("#depense-montant"));
